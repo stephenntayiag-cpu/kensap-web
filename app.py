@@ -1,3 +1,4 @@
+import os
 import dash
 from dash import html, dcc
 import dash_bootstrap_components as dbc
@@ -104,6 +105,6 @@ def display_page(pathname):
                     style={'textAlign': 'center', 'color': '#C0154B', 'fontStyle': 'italic', 'marginTop': '25px'})
         ])
 
-# Local testing only
 if __name__ == "__main__":
-    app.run_server(debug=True, host="0.0.0.0", port=8050)
+    port = int(os.environ.get("PORT", 8050))
+    app.run_server(debug=False, host="0.0.0.0", port=port)
